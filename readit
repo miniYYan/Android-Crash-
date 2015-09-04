@@ -1,0 +1,17 @@
+
+ * Sets the default uncaught exception handler. This handler is invoked in 
+ * case any Thread dies due to an unhandled exception. 
+ * 
+ * @param handler 
+ *            The handler to set or null. 
+ */  
+public static void setDefaultUncaughtExceptionHandler(UncaughtExceptionHandler handler) {  
+    Thread.defaultUncaughtHandler = handler;  
+}  
+
+
+当crash发生的时候，我们可以捕获到异常信息，把异常信息存储到SD卡中，然后在合适的时机通过网络将crash信息上传到服务器上，
+这样开发人员就可以分析用户crash的场景从而在后面的版本中修复此类crash。我们还可以在crash发生时，弹出一个通知告诉用户程序crash了，
+然后再退出，这样做比闪退要温和一点。
+
+异常信息保存在  SD卡： /wcTestInfo/log/xxxx/trace
